@@ -1,3 +1,12 @@
+
+## API key
+
+Log into Flickr and generate an API key. 
+The key will need to be added to a config.js inside the src directory: 
+
+const apiKey = 'YOUR_API_KEY';
+export default apiKey;
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
