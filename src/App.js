@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import apiKey from './Components/Config';
-import PhotoContainer from './Components/PhotoContainer';
 import { 
   BrowserRouter,
   Switch, 
   Route 
 } from 'react-router-dom';
+
+// App Components 
+import PhotoContainer from './Components/PhotoContainer';
 import Search from './Components/Search';
 import Nav from './Components/Nav';
 import NotFound from './Components/NotFound';
@@ -23,6 +25,7 @@ class App extends Component {
     this.getCustomPhotos = this.getCustomPhotos.bind(this);
   }
 
+  //Fetches Dog Cat and Computer images from from Flicker using axios
   componentDidMount(){
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&tags=dogs&per_page=24&format=json&nojsoncallback=1&api_key=${apiKey}`)
     .then(response => 
@@ -49,6 +52,7 @@ class App extends Component {
       }))
   }
 
+  //Fetcher for search box 
   getCustomPhotos = (query) => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&tags=${query}&per_page=24&format=json&nojsoncallback=1&api_key=${apiKey}`)
     .then(response => 
